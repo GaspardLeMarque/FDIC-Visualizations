@@ -14580,7 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Geopandas-and-seaborn-for-FDIC-bank-data-visualizations">Geopandas and seaborn for FDIC bank data visualizations<a class="anchor-link" href="#Geopandas-and-seaborn-for-FDIC-bank-data-visualizations">&#182;</a></h1>
+<h1 id="Apply-Geopandas-and-Seaborn-to-FDIC-Bank-Data-Visualizations">Apply Geopandas and Seaborn to FDIC Bank Data Visualizations<a class="anchor-link" href="#Apply-Geopandas-and-Seaborn-to-FDIC-Bank-Data-Visualizations">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14589,7 +14589,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14597,10 +14597,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="c1"># Load the USA map shapefile</span>
+<span class="c1"># Load a filtered FDIC dataset and USA map shapefile</span>
 <span class="n">banks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'/content/drive/MyDrive/filtered_institutions.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
 
 <span class="n">usmap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">"/content/drive/MyDrive/tl_2022_us_state/tl_2022_us_state.shp"</span><span class="p">)</span>
@@ -14637,7 +14636,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">non_continental</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'HI'</span><span class="p">,</span><span class="s1">'VI'</span><span class="p">,</span><span class="s1">'MP'</span><span class="p">,</span><span class="s1">'GU'</span><span class="p">,</span><span class="s1">'AK'</span><span class="p">,</span><span class="s1">'AS'</span><span class="p">,</span><span class="s1">'PR'</span><span class="p">]</span>
@@ -14699,7 +14698,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Select relevant columns from banks dataframe</span>
@@ -14714,9 +14713,8 @@ class="
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">merged_geo_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">'COUNT'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Oranges'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'0.8'</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">area_threshold</span> <span class="o">=</span> <span class="n">merged_geo_data</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">]</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span>  <span class="c1"># For example, using the 25th percentile as a cutoff</span>
+<span class="n">area_threshold</span> <span class="o">=</span> <span class="n">merged_geo_data</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">]</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span>
 
-<span class="c1"># Add state abbreviations without the area threshold condition for simplicity in this example</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">merged_geo_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="c1"># Only add text for states larger than the area threshold</span>
     <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">area</span> <span class="o">&gt;</span> <span class="n">area_threshold</span><span class="p">:</span>
@@ -14725,7 +14723,6 @@ class="
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Number of ever registered Banks by State'</span><span class="p">)</span>
 
-<span class="c1"># Show the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -14770,7 +14767,19 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Only-Texas-has-more-than-2500-banks-ever-registered-there.-I'd-like-to-plot-a-simple-pie-chart-to-see-how-many-banks-are-still-active-in-the-country."><strong>Only Texas has more than 2500 banks ever registered there. I'd like to plot a simple pie chart to see how many banks are still active in the country.</strong><a class="anchor-link" href="#Only-Texas-has-more-than-2500-banks-ever-registered-there.-I'd-like-to-plot-a-simple-pie-chart-to-see-how-many-banks-are-still-active-in-the-country.">&#182;</a></h4>
+<p><strong>Only Texas has more than 2500 banks ever registered there.</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="I'd-like-to-plot-a-simple-pie-chart-to-see-how-many-banks-are-still-active-in-the-country."><strong>I'd like to plot a simple pie chart to see how many banks are still active in the country.</strong><a class="anchor-link" href="#I'd-like-to-plot-a-simple-pie-chart-to-see-how-many-banks-are-still-active-in-the-country.">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14779,7 +14788,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Calculate the count of active and inactive institutions</span>
@@ -14806,7 +14815,7 @@ class="
 <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">centre_circle</span><span class="p">)</span>
 
 <span class="c1"># Equal aspect ratio ensures that pie is drawn as a circle</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Comparison of Active vs. Inactive anks'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Comparison of Active vs. Inactive Banks'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'equal'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -14852,7 +14861,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Less-than-1/5-of-the-total-amount."><strong>Less than 1/5 of the total amount.</strong><a class="anchor-link" href="#Less-than-1/5-of-the-total-amount.">&#182;</a></h4>
+<p><strong>Less than 1/5 of the total amount.</strong></p>
+
 </div>
 </div>
 </div>
@@ -14872,7 +14882,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Filter out only 'ACTIVE' and 'STNAME' columns (1 means that bank is active)</span>
@@ -14953,7 +14963,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Not-very-representative.-Seems-like-it's-better-to-calculate-the-ratio-between-these-categories."><strong>Not very representative. Seems like it's better to calculate the ratio between these categories.</strong><a class="anchor-link" href="#Not-very-representative.-Seems-like-it's-better-to-calculate-the-ratio-between-these-categories.">&#182;</a></h4>
+<h4 id="Not-very-representative.-Seems-like-it's-better-to-calculate-a-ratio-between-these-categories."><strong>Not very representative. Seems like it's better to calculate a ratio between these categories.</strong><a class="anchor-link" href="#Not-very-representative.-Seems-like-it's-better-to-calculate-a-ratio-between-these-categories.">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14962,7 +14972,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Calculate the ratio of active to inactive banks for each state</span>
@@ -14987,7 +14997,7 @@ class="
         <span class="n">centroid</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">centroid</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">'STUSPS'</span><span class="p">],</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Ratio of Active to Inactive Banks by State'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Ratio of Inactive to Active Banks by State'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -15033,7 +15043,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Blue-states-suggest-stable-banking-sectors,-while-red,-notably-Florida,-indicates-higher-inactivity,-possibly-detect-banking-sector-challenges.-The-map-can-serve-as-an-indicator-of-the-relative-health-of-the-banking-industry-across-states."><strong>Blue states suggest stable banking sectors, while red, notably Florida, indicates higher inactivity, possibly detect banking sector challenges. The map can serve as an indicator of the relative health of the banking industry across states.</strong><a class="anchor-link" href="#Blue-states-suggest-stable-banking-sectors,-while-red,-notably-Florida,-indicates-higher-inactivity,-possibly-detect-banking-sector-challenges.-The-map-can-serve-as-an-indicator-of-the-relative-health-of-the-banking-industry-across-states.">&#182;</a></h4>
+<p><strong>Blue states suggest stable banking sectors, while red, notably Florida, indicates higher inactivity, possibly detect banking sector challenges. The map can serve as an indicator of the relative health of the banking industry across states.</strong></p>
+
 </div>
 </div>
 </div>
@@ -15044,7 +15055,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Let's-look-at-the-couple-of-financial-metrics-in-the-form-of-an-non-interactive-dashboard"><strong>Let's look at the couple of financial metrics in the form of an non-interactive dashboard</strong><a class="anchor-link" href="#Let's-look-at-the-couple-of-financial-metrics-in-the-form-of-an-non-interactive-dashboard">&#182;</a></h4>
+<h4 id="Let's-look-at-a-couple-of-financial-metrics-in-the-form-of-a-non-interactive-dashboard"><strong>Let's look at a couple of financial metrics in the form of a non-interactive dashboard</strong><a class="anchor-link" href="#Let's-look-at-a-couple-of-financial-metrics-in-the-form-of-a-non-interactive-dashboard">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -15053,7 +15064,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">banks_filtered</span> <span class="o">=</span> <span class="n">banks</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'ROA'</span><span class="p">,</span> <span class="s1">'ROE'</span><span class="p">,</span> <span class="s1">'ASSET'</span><span class="p">,</span> <span class="s1">'STNAME'</span><span class="p">,</span> <span class="s1">'BKCLASS'</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -15074,10 +15085,8 @@ class="
 <span class="c1"># Update BKCLASS with short descriptions</span>
 <span class="n">banks_filtered</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'BKCLASS'</span><span class="p">]</span> <span class="o">=</span> <span class="n">banks_filtered</span><span class="p">[</span><span class="s1">'BKCLASS'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">bank_class_dict</span><span class="p">)</span>
 
-<span class="c1"># Calculate the mean ROA and ROE for each state</span>
+<span class="c1"># Calculate the mean ROA and ROE for each state and sort them for consistent order</span>
 <span class="n">mean_values</span> <span class="o">=</span> <span class="n">banks_filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'STNAME'</span><span class="p">)[[</span><span class="s1">'ROA'</span><span class="p">,</span> <span class="s1">'ROE'</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
-<span class="c1"># Sort states by mean ROA to get a consistent order for both plots</span>
 <span class="n">mean_values_sorted</span> <span class="o">=</span> <span class="n">mean_values</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'ROA'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 
 <span class="c1"># Create a figure to hold the dashboard layout</span>
@@ -15091,22 +15100,19 @@ class="
 <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">'STNAME'</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'ROE'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">mean_values_sorted</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Average ROE by State - Top 40'</span><span class="p">)</span>
 
-<span class="n">total_assets_by_state</span> <span class="o">=</span> <span class="n">banks_filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'STNAME'</span><span class="p">)[</span><span class="s1">'ASSET'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
 <span class="c1"># Create the barplot for Total Assets by State for the top 40 states</span>
+<span class="n">total_assets_by_state</span> <span class="o">=</span> <span class="n">banks_filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'STNAME'</span><span class="p">)[</span><span class="s1">'ASSET'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">top_states_by_assets</span> <span class="o">=</span> <span class="n">total_assets_by_state</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'ASSET'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">top_states_by_assets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'ASSET'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'STNAME'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Total Assets by State - Top 40'</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span>
 
-<span class="c1"># Bank Classification Types - This also remains unchanged</span>
+<span class="c1"># Bank Classification Types</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">banks_filtered</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'BKCLASS'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax4</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">banks_filtered</span><span class="p">[</span><span class="s1">'BKCLASS'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Bank Classification Types'</span><span class="p">)</span>
 
-<span class="c1"># Adjust layout spacing</span>
+<span class="c1"># Adjust layout spacing and show the dashboard</span>
 <span class="n">dashboard_fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
-
-<span class="c1"># Show the dashboard</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -15151,7 +15157,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="The-dashboard-provides-a-financial-profile-of-the-banking-sector-across-different-states-and-territories,-focusing-on-profitability-(ROA-and-ROE),-size-(Total-Assets),-and-organizational-structure-(Bank-Classification-Types).-The-negative-values-in-ROE-across-all-states-and-territories-suggest-are-uncommon-and-indicate-losses-or-poor-performance.-The-values-range-from-around-0-to--500,-with-the-Federated-States-of-Micronesia-having-the-least-negative-value-and-Florida-the-most-negative.">The dashboard provides a financial profile of the banking sector across different states and territories, focusing on profitability (ROA and ROE), size (Total Assets), and organizational structure (Bank Classification Types). The negative values in ROE across all states and territories suggest are uncommon and indicate losses or poor performance. The values range from around 0 to -500, with the Federated States of Micronesia having the least negative value and Florida the most negative.<a class="anchor-link" href="#The-dashboard-provides-a-financial-profile-of-the-banking-sector-across-different-states-and-territories,-focusing-on-profitability-(ROA-and-ROE),-size-(Total-Assets),-and-organizational-structure-(Bank-Classification-Types).-The-negative-values-in-ROE-across-all-states-and-territories-suggest-are-uncommon-and-indicate-losses-or-poor-performance.-The-values-range-from-around-0-to--500,-with-the-Federated-States-of-Micronesia-having-the-least-negative-value-and-Florida-the-most-negative.">&#182;</a></h4><h4 id="The-most-frequent-type-is-a-state-bank-which-is-not-a-Fed-member.-Time-to-plot-all-of-them-on-the-map."><strong>The most frequent type is a state bank which is not a Fed member. Time to plot all of them on the map.</strong><a class="anchor-link" href="#The-most-frequent-type-is-a-state-bank-which-is-not-a-Fed-member.-Time-to-plot-all-of-them-on-the-map.">&#182;</a></h4>
+<p><strong>The dashboard provides a financial profile of the banking sector across different states and territories, focusing on profitability (ROA and ROE), size (Total Assets), and organizational structure (Bank Classification Types). The negative values in ROE across all states and territories suggest are uncommon and indicate losses or poor performance. The values range from around 0 to -500, with the Federated States of Micronesia having the least negative value and Florida the most negative.</strong></p>
+<h4 id="The-most-frequent-type-is-a-state-bank-which-is-not-a-Fed-member.-Time-to-plot-all-of-them-on-the-map."><strong>The most frequent type is a state bank which is not a Fed member. Time to plot all of them on the map.</strong><a class="anchor-link" href="#The-most-frequent-type-is-a-state-bank-which-is-not-a-Fed-member.-Time-to-plot-all-of-them-on-the-map.">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -15160,7 +15167,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Aggregate the number of banks by state and class</span>
@@ -15178,7 +15185,6 @@ class="
 <span class="c1"># Build a plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">merged_geo_data_classes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="n">bank_class_to_plot</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Oranges'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'0.8'</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
 <span class="n">area_threshold</span> <span class="o">=</span> <span class="n">merged_geo_data_classes</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">]</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span>
 
 <span class="c1"># Add state abbreviations without the area threshold condition for simplicity</span>
@@ -15234,7 +15240,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Provided-illustration-shows-the-distribution-of-commercial-banks-that-are-not-members-of-the-Federal-Reserve-System-across-the-United-States.-Texas-stands-out-with-the-highest-concentration-of-this-type-of-banks."><strong>Provided illustration shows the distribution of commercial banks that are not members of the Federal Reserve System across the United States. Texas stands out with the highest concentration of this type of banks.</strong><a class="anchor-link" href="#Provided-illustration-shows-the-distribution-of-commercial-banks-that-are-not-members-of-the-Federal-Reserve-System-across-the-United-States.-Texas-stands-out-with-the-highest-concentration-of-this-type-of-banks.">&#182;</a></h4>
+<p><strong>Provided illustration shows the distribution of commercial banks that are not members of the Federal Reserve System across the United States. Texas stands out with the highest concentration of this type of banks.</strong></p>
+
 </div>
 </div>
 </div>
